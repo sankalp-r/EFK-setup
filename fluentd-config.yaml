@@ -23,17 +23,6 @@ data:
     </source>
 
 
-    <filter kubernetes.**>
-       @type grep
-       regexp1 log ApplicationLogs
-    </filter>
-
-
-
-
-
-
-
     #exclude kube-system logs
     <match kubernetes.var.log.containers.**kube-system**.log>
         @type null
@@ -59,8 +48,6 @@ data:
     <filter kubernetes.**>
         @type kubernetes_metadata
     </filter>
-
-
 
     # we send the logs to Elasticsearch
     <match kubernetes.**>
