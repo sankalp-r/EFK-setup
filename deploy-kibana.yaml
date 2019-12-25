@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibanavizualizer
+  labels:
+    name: kibanavizualizer
+spec:
+  selector:
+    matchLabels:
+      name: kibanavizualizer
+  template:
+    metadata:
+      name: kibanavizualizer
+      labels:
+        name: kibanavizualizer
+    spec:
+      containers:
+        - name: kibanavizualizer
+          image: kibana:6.8.2
+          env:
+            - name: ELASTICSEARCH_URL
+              value: http://elasticsearch:9200
+            - name: XPACK_SECURITY_ENABLED
+              value: "true"
+          ports:
+            - containerPort: 5601
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 500Mi
+            requests:
+              cpu: 50m
+              memory: 100Mi
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  labels:
+    service: kibana
+spec:
+  #clusterIP: None
+  selector:
+    name: kibanavizualizer
+  ports:
+    - port: 5601
+      targetPort: 5601
