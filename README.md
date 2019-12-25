@@ -8,5 +8,5 @@ pods/containers where your app is deployed. To overcome this issue we have EFK s
 Flunetd(log collector) runs as a daemonset within each node of the cluster and pushes the log to the Elasticsearch. After this, we can visualize these logs from Kibana dashboard. So basically we now have a centralized logging system for all our apps in the kubernetes cluster.
 
 ## Deploy elasticsearch and kibana
-Create elasticsearch and kibana deployment by using their corresponding .yaml files.
+Create elasticsearch and kibana deployment by using their corresponding .yaml files.<br>
 e.g. : ```kubectl apply -f <yaml file>```
