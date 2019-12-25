@@ -13,11 +13,28 @@ e.g. : ```kubectl apply -f <yaml file>```
 
 
 ## Configure fluentd
-We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch.
-Here are some the configurations we can have: <br>
+We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch. To have your own fluentd configuration, we need to create a ConfigMap in our cluster(see the configmap.yaml file). 
+Here are some of the examples of sample configurations: <br>
   1. exclude kube-system logs: <br>
        ```
        <match kubernetes.var.log.containers.**kube-system**.log>
          @type null
        </match>
       ```
+  2. exclude fluentd logs: <br>
+       ```
+       <match kubernetes.var.log.containers.**fluentd**.log>
+         @type null
+       </match>
+      ```
+  3. parse the log:<br>
+     Suppose we have a log-message : ```2019/12/23 00:12:36 [DEBUG] [App]: debug-message``` <br>
+     We have to transform this message into json-form: <br>
+        ```
+        { "timestamp": 2019/12/23 00:12:36,
+           "level": "DEBUG",
+           "component": "App",
+           "message": "debug-message"
+        }
+        ```
+     
