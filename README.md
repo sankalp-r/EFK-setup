@@ -39,8 +39,8 @@ Here are some of the examples of sample configurations: <br>
         }
         ```
       Here is the configuration you need to tranform the log-message in the above mentioned format: <br>
-        <code> <filter kubernetes.\*\*>  </code>
-         <code>   @type parser  <br>   </code>
+        <code> <filter kubernetes.\*\*>  </code>  <br>
+            <code>   @type parser  <br>   </code>
            key_name log  <br>
            <parse>       <br>
                @type regexp  <br>
