@@ -38,4 +38,5 @@ Here are some of the examples of sample configurations: <br>
            "message": "debug-message"
         }
         ```
+       To achive the above mentioned json-format, check the configuration in ```fluentd-config.yaml```(line no. 37-44)
        
