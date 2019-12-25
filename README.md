@@ -10,3 +10,12 @@ Flunetd(log collector) runs as a daemonset within each node of the cluster and p
 ## Deploy elasticsearch and kibana
 Create elasticsearch and kibana deployment by using their corresponding .yaml files.<br>
 e.g. : ```kubectl apply -f <yaml file>```
+
+
+## Configure fluentd
+We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch.
+Here are some the configurations we can have: <br>
+  1. exclude kube-system logs: <br>
+       ``` <match kubernetes.var.log.containers.**kube-system**.log>
+            @type null
+           </match>```
