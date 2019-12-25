@@ -39,7 +39,7 @@ Here are some of the examples of sample configurations: <br>
         }
         ```
       Here is the configuration you need to tranform the log-message in the above mentioned format: <br>
-          ```
+          ``` ruby
            <filter>
               @type parser
               key_name log
