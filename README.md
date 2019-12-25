@@ -42,4 +42,5 @@ Here are some of the examples of sample configurations: <br>
 
 ## Deploy fluentd
 We need to deploy fluentd as a daemonset(see deploy-fluentd.yaml file). 
+The the ConfigMap which we created in previously is mapped to the fluentd deployment in the deployment yaml file(deploy-fluentd.yaml)
    
