@@ -39,13 +39,12 @@ Here are some of the examples of sample configurations: <br>
         }
         ```
       Here is the configuration you need to tranform the log-message in the above mentioned format: <br>
-        <code>
-         <filter kubernetes.\*\*> <br>
-           @type parser  <br>
+        <code> <filter kubernetes.\*\*>  </code>
+         <code>   @type parser  <br>   </code>
            key_name log  <br>
            <parse>       <br>
                @type regexp  <br>
                expression /^(?<timestamp>.\*?)\s\[(?<level>.\*?)\] \[(?<component>.\*?)\]: (?<message>.\*)$/  <br>
            </parse>   <br>
          </filter>   <br>
-        </code>
+       
