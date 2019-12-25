@@ -5,7 +5,7 @@ To check the logs of microservices in a kubernetes environment can be little dif
 pods/containers where your app is deployed. To overcome this issue we have EFK stack for centralized logging.
 
 ## How EFK stack works
-Flunetd(log collector) runs as a daemonset within each node of the cluster and pushes the log to the Elasticsearch. After this, we can visualize these logs from Kibana dashboard. So basically we now have a centralized logging system for all our apps in the kubernetes cluster.
+Flunetd(log collector) runs as a daemonset within each node of the cluster and pushes the logs to the Elasticsearch. After this, we can visualize these logs from Kibana dashboard. So basically we now have a centralized logging system for all our apps in the kubernetes cluster.
 
 ## Deploy elasticsearch and kibana
 Create elasticsearch and kibana deployment by using their corresponding .yaml files.<br>
@@ -42,5 +42,5 @@ Here are some of the examples of sample configurations: <br>
 
 ## Deploy fluentd
 We need to deploy fluentd as a daemonset(see deploy-fluentd.yaml file). 
-The the ConfigMap which we created in previously is mapped to the fluentd deployment in the deployment yaml file(deploy-fluentd.yaml)
+The ConfigMap which we created previously is mapped to the fluentd in the deployment yaml file(deploy-fluentd.yaml)
    
