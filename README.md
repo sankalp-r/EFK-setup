@@ -31,10 +31,22 @@ Here are some of the examples of sample configurations: <br>
      Suppose we have a log-message : ```2019/12/23 00:12:36 [DEBUG] [App]: debug-message``` <br>
      We have to transform this message into json-form: <br>
         ```
-        { "timestamp": 2019/12/23 00:12:36,
+        { 
+           "timestamp": 2019/12/23 00:12:36,
            "level": "DEBUG",
            "component": "App",
            "message": "debug-message"
         }
         ```
+      Here is the configuration you need to tranform the log-message in the above mentioned format: <br>
+          ```
+           <filter kubernetes.**>
+              @type parser
+              key_name log
+              <parse>
+                @type regexp
+                expression /^(?<timestamp>.*?)\s\[(?<level>.*?)\] \[(?<component>.*?)\]: (?<message>.*)$/
+              </parse>
+           </filter>
+          ```
      
