@@ -13,7 +13,7 @@ e.g. : ```kubectl apply -f <yaml file>```
 
 
 ## Configure fluentd
-We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch. To have your own fluentd configuration, we need to create a ConfigMap in our cluster(see the flunetd-config.yaml file). 
+We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch. To have your own fluentd configuration, we need to create a ConfigMap in our cluster(see the fluentd-config.yaml file). 
 Here are some of the examples of sample configurations: <br>
   1. exclude kube-system logs: <br>
        ```
