@@ -16,6 +16,6 @@ e.g. : ```kubectl apply -f <yaml file>```
 We can have custom configurations for fluentd to parse, filter and modify the logs before pushing into elasticsearch.
 Here are some the configurations we can have: <br>
   1. exclude kube-system logs: <br>
-       ``` <match kubernetes.var.log.containers.**kube-system**.log>
+       ```<match kubernetes.var.log.containers.**kube-system**.log>
             @type null
-           </match>```
+          </match>```
